@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Система видеомониторинга для операторов">
+  <title>Система видеомониторинга</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Стили для предзагрузки */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #0f0f23;
+      color: white;
+    }
+    
+    #app {
+      min-height: 100vh;
+    }
+    
+    /* Анимация загрузки */
+    .app-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0f0f23;
+      z-index: 9999;
+    }
+    
+    .loading-logo {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+    
+    .loading-text {
+      color: #b0b0c0;
+      font-size: 16px;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Контент загружается через Vue -->
+    <div class="app-loading">
+      <div class="loading-logo">📹</div>
+      <div class="loading-text">Загрузка системы видеомониторинга...</div>
+    </div>
+  </div>
+  
+  <script type="module" src="/src/main.js"></script>
+  
+  <script>
+    // Убираем прелоадер после загрузки приложения
+    window.addEventListener('load', () => {
+      const preloader = document.querySelector('.app-loading')
+      if (preloader) {
+        setTimeout(() => {
+          preloader.style.opacity = '0'
+          setTimeout(() => {
+            preloader.style.display = 'none'
+          }, 300)
+        }, 500)
+      }
+    })
+  </script>
+</body>
+</html>
