@@ -1,5 +1,6 @@
 # 1. Установка зависимостей
 npm install vue vue-router pinia axios chart.js
+
 npm install -D @vitejs/plugin-vue vite
 
 # 2. Запуск в режиме разработки
@@ -69,4 +70,5 @@ frontend/
 │   └── main.js
 ├── index.html
 ├── package.json
+
 └── vite.config.js
